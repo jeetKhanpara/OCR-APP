@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mistral OCR App
 
 The **Mistral OCR App** is a Streamlit-based web application that leverages the [Mistral OCR API](https://docs.mistralai.com/) to extract text from both PDF documents and images. Users can either provide a URL or upload a local file. The app displays the original document (or image) in a preview alongside the extracted OCR results and offers a seamless download option—all without refreshing the page.
@@ -137,3 +138,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## Contact
 
 For any questions or support, please open an issue in this repository or contact [sonu@aianytime.net].
+=======
+# OCR-APP
+ Streamlit-based web application that leverages the Mistral OCR API to extract text from both PDF documents and images
+>>>>>>> c799a72cbc5d60b608474c2c1b29b4fada695c19
