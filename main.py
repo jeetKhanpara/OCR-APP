@@ -5,7 +5,7 @@ from mistralai import Mistral
 
 st.set_page_config(layout="wide", page_title="Mistral OCR App", page_icon="🖥️")
 st.title("Mistral OCR App")
-st.markdown("<h3 style color: white;'>Built by <a href='https://github.com/AIAnytime'>AI Anytime with ❤️ </a></h3>", unsafe_allow_html=True)
+# st.markdown("<h3 style color: white;'>Built by <a href='https://github.com/AIAnytime'>AI Anytime with ❤️ </a></h3>", unsafe_allow_html=True)
 with st.expander("Expand Me"):
     st.markdown("""
     This application allows you to extract information from pdf/image based on Mistral OCR. Built by AI Anytime.
@@ -18,6 +18,8 @@ if not api_key:
     st.stop()
 
 # Initialize session state variables for persistence
+
+
 if "ocr_result" not in st.session_state:
     st.session_state["ocr_result"] = None
 if "preview_src" not in st.session_state:
@@ -65,8 +67,8 @@ if st.button("Process"):
                 file_bytes = uploaded_file.read()
                 encoded_pdf = base64.b64encode(file_bytes).decode("utf-8")
                 document = {
-                    "type": "document_base64",
-                    "document_base64": encoded_pdf
+                    "type": "document_url",
+                    "document_url": f"data:application/pdf;base64,{encoded_pdf}"
                 }
                 preview_src = f"data:application/pdf;base64,{encoded_pdf}"
         else:  # file_type == "Image"
@@ -136,3 +138,5 @@ if st.session_state["ocr_result"]:
         b64 = base64.b64encode(st.session_state["ocr_result"].encode()).decode()
         href = f'<a href="data:file/txt;base64,{b64}" download="ocr_result.txt">Download OCR Result</a>'
         st.markdown(href, unsafe_allow_html=True)
+
+
